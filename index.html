@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0e0e10">
+  <meta name="description" content="Daniel's freshman portfolio at Aditya University. Explore his interests in robotics, chess, C and C++, and his goal of starting a company.">
+  <title>Daniel’s Portfolio</title>
+  <style>
+    :root{color-scheme:dark;--ink:#0e0e10;--panel:#1b1919;--line:#383130;--paper:#f4f1e9;--muted:#bbbfce;--accent:#ff9b50;--fire:#ff7638;--mono:ui-monospace,Consolas,monospace;--display:"Arial Black","Segoe UI Black",system-ui,sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:6rem}
+    body{margin:0;background:var(--ink);color:var(--paper);font:1rem/1.55 system-ui,sans-serif}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer}
+    :focus-visible{outline:2px solid var(--fire);outline-offset:5px}
+    [hidden]{display:none!important}
+    .wrap{width:min(1240px,calc(100% - 100px));margin-inline:auto}
+    .skip{position:fixed;top:.5rem;left:1rem;translate:0 -160%;z-index:20;background:var(--accent);color:var(--ink);padding:.6rem 1rem}
+    .skip:focus{translate:0}
+    .top{position:sticky;top:0;z-index:5;background:#0e0e10f5;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+    .nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:inline-flex;align-items:center;gap:11px;font-weight:850;white-space:nowrap}
+    .mark{display:inline-grid;place-items:center;width:34px;height:34px;clip-path:polygon(0 0,100% 0,100% 69%,69% 100%,0 100%);background:var(--accent);color:var(--ink);font:italic 900 23px/1 var(--display)}
+    .nav-links{display:flex;align-items:center;gap:clamp(14px,3vw,36px);font-size:.88rem;color:var(--muted)}
+    .nav-links a:hover,.footer a:hover{color:var(--accent)}
+    .nav-links .nav-contact{border:1px solid #74777e;color:var(--paper);padding:.48rem .8rem}
+    .hero{position:relative;display:grid;align-items:center;min-height:clamp(570px,75svh,840px);isolation:isolate;overflow:hidden;background:#0e0e10}
+    .hero-art{position:absolute;z-index:-3;inset:0;background:radial-gradient(ellipse at 83% 39%,#585d23 0%,#181d22 30%,#0e0e10 63%);overflow:hidden}
+    .hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 51%;display:block}
+    .hero::before{content:"";position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,#0e0e10 0%,#0e0e10d9 24%,#0e0e1063 49%,transparent 73%),linear-gradient(0deg,#0e0e10 0%,transparent 26%)}
+    .hero-copy{padding-block:6.7rem 7.1rem}
+    .eyebrow{font:750 .75rem/1.4 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 1.25rem}
+    .eyebrow::before{content:"";display:inline-block;width:1.3rem;height:2px;background:currentColor;vertical-align:middle;margin-right:.6rem}
+    h1,h2,h3,p{margin-top:0}
+    h1{font:italic 950 clamp(6.1rem,13.1vw,12.1rem)/.82 var(--display);letter-spacing:-.115em;margin:0 0 1.5rem -.067em;text-transform:uppercase}
+    .hero-sub{font-size:clamp(1.12rem,2vw,1.52rem);font-weight:690;letter-spacing:-.025em;margin:0 0 2rem;max-width:24rem;text-wrap:balance}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .button{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:.8em;border:1px solid transparent;padding:.73rem 1.12rem;background:var(--accent);color:var(--ink);font-weight:850;transition:background .18s,color .18s,transform .18s}
+    .button:hover{background:var(--paper);transform:translateY(-2px)}
+    .button.ghost{color:var(--paper);border-color:#777985;background:#0e0e10bf}
+    .button.ghost:hover{background:var(--paper);color:var(--ink)}
+    .hero-tag{position:absolute;right:4%;bottom:1.3rem;color:var(--muted);font:.68rem var(--mono);text-transform:uppercase;letter-spacing:.12em}
+    .hero-tag span{color:var(--accent);margin-right:.45rem}
+    .ticker{border-block:1px solid var(--line);background:#171513}
+    .ticker .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.65rem 1.5rem;padding-block:1rem;color:var(--muted);font:650 .73rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .ticker strong{color:var(--accent);margin-right:.5rem}
+    section:not(.hero){padding-block:clamp(3.8rem,8vw,7.5rem)}
+    h2{font:900 clamp(2.55rem,6.3vw,6rem)/.98 var(--display);letter-spacing:-.083em;margin-bottom:1.35rem}
+    .intro{display:grid;grid-template-columns:1.05fr .85fr;align-items:end;gap:2rem 4rem;margin-bottom:2.25rem}
+    .intro h2,.intro p:last-child{margin-bottom:0}
+    .lede{color:var(--muted);font-size:clamp(1.03rem,1.6vw,1.25rem);max-width:37rem}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--panel);border:1px solid var(--line);min-height:220px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+    .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .icon{display:grid;place-items:center;width:50px;height:50px;margin-bottom:1.65rem;border:1px solid #77503a;color:var(--accent);background:#35261e;font:800 1.6rem var(--mono)}
+    .card h3{font-size:1.45rem;letter-spacing:-.055em;margin-bottom:.35rem}
+    .card p{color:var(--muted);margin-bottom:0}
+    .tags{display:flex;gap:.5rem;list-style:none;padding:0;margin:.8rem 0 0}
+    .tags li{border:1px solid #77503a;padding:.2rem .55rem;font:800 .85rem var(--mono);color:var(--accent)}
+    .scores{background:#fff9f2;color:var(--ink);border-block:1px solid #ecd2be}
+    .score-grid{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid #d7b8a2;margin:2.35rem 0 0}
+    .score{padding:1.6rem 1.6rem 1.7rem 0}
+    .score+.score{border-left:1px solid #d7b8a2;padding-left:1.6rem}
+    .score dt{font:750 .82rem var(--mono);text-transform:uppercase;letter-spacing:.07em}
+    .score dd{font:900 clamp(2.65rem,7.1vw,6.65rem)/1.18 var(--display);letter-spacing:-.1em;margin:0}
+    .score dd span{font:800 clamp(.82rem,1.7vw,1.35rem) var(--mono);letter-spacing:0;margin-left:.35rem}
+    .arena{background:radial-gradient(ellipse at 70% 66%,#262f1e,#181a23 59%,#0e0e10 85%);border-bottom:1px solid var(--line)}
+    .arena-grid{display:grid;grid-template-columns:.85fr 1.14fr;gap:2rem 4rem;align-items:center}
+    .arena-copy .lede{margin-bottom:1.35rem}
+    .guide{margin:0;color:var(--muted);font-size:.91rem}
+    .guide summary{cursor:pointer;color:var(--accent);font-weight:750;width:max-content}
+    .guide p{margin:.65rem 0 0}
+    .game{border:1px solid #636c45;background:#12141b;box-shadow:10px 10px #08090c60}
+    .game-head{display:flex;align-items:center;justify-content:space-between;gap:.65rem;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:.8rem 1rem;font:700 .75rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    .game-head b{color:var(--accent)}
+    .stage{display:grid;place-items:center;position:relative;isolation:isolate;height:212px;overflow:hidden;background:radial-gradient(ellipse,#343c28 0%,#171b24 68%)}
+    .stage::before{content:"";position:absolute;z-index:-1;inset:0;background:repeating-linear-gradient(0deg,transparent 0 18px,#c9ff5920 19px 20px),repeating-linear-gradient(90deg,transparent 0 18px,#c9ff591c 19px 20px);mask-image:radial-gradient(ellipse,#000,transparent 76%)}
+    .fighters{display:flex;align-items:center;gap:clamp(1rem,4vw,3rem)}
+    .vs{font:italic 800 1.1rem var(--display);color:#d9ad91}
+    .helmet{width:clamp(70px,10vw,115px);height:clamp(76px,11vw,124px);position:relative;background:linear-gradient(145deg,#a6b769,#424c30 35%,#20251b 70%);clip-path:polygon(12% 19%,32% 0,70% 0,91% 23%,96% 63%,76% 82%,63% 100%,36% 100%,22% 83%,5% 64%);filter:brightness(1.2);transition:translate .25s,transform .25s,opacity .25s}
+    .helmet::before{content:"";position:absolute;inset:17% 13% 15%;clip-path:polygon(0 0,100% 7%,100% 64%,71% 100%,36% 100%,0 68%);background:#141817}
+    .helmet::after{content:"";position:absolute;inset:38% 16% 37%;background:#99e1ff;clip-path:polygon(0 0,71% 31%,100% 14%,88% 54%,69% 75%,12% 44%)}
+    .helmet.robot{transform:scaleX(-1);background:linear-gradient(150deg,#aa8e80,#694c45 37%,#231a20 75%);clip-path:polygon(0 11%,100% 11%,93% 66%,81% 83%,66% 97%,32% 97%,14% 71%);border-top:10px solid #4c3531}
+    .helmet.robot::after{background:var(--fire);clip-path:polygon(0 15%,100% 30%,85% 72%,11% 59%)}
+    .stage[data-action="miss"] .hero-helmet{animation:stagger .35s ease}
+    @keyframes lunge{50%{translate:18px 0;filter:brightness(2)}}
+    @keyframes recoil{50%{translate:17px 0;opacity:.47}}
+    @keyframes stagger{50%{translate:-13px 0;opacity:.47}}
+    .game-body{padding:1rem;display:grid;gap:.85rem}
+    .game-body p{margin:0;color:var(--muted);font-size:.94rem;min-height:3em}
+    .game-body p strong{color:var(--paper)}
+    .moves{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+    .move{min-height:44px;color:var(--paper);background:var(--panel);border:1px solid #62674e;font-weight:750;padding:.4rem .2rem}
+    .move:hover:not(:disabled){color:var(--ink);background:var(--accent);border-color:var(--accent)}
+    .move:disabled{opacity:.4;cursor:default}
+    .game-body>.button{justify-self:start}
+    .contact{text-align:center}
+    .contact .lede{margin:0 auto 1.5rem}
+    .contact .button{max-width:100%;overflow-wrap:anywhere}
+    .footer{border-top:1px solid var(--line);padding-block:1.3rem;color:var(--muted);font:.78rem var(--mono)}
+    .footer .wrap{display:flex;justify-content:space-between;gap:1rem}
+    @media(max-width:900px){.wrap{width:calc(100% - 64px)}.hero-art img{object-position:59% 50%}.intro,.arena-grid{gap:1.9rem}.cards .card{padding:1.15rem}}
+    @media(max-width:650px){
+      html{scroll-padding-top:4.5rem}
+      .wrap{width:calc(100% - 34px)}.nav{min-height:60px;gap:.5rem}.brand{font-size:.86rem;gap:7px}.mark{width:27px;height:27px;font-size:19px}.nav-links{gap:.65rem;font-size:.75rem}.nav-links .nav-contact{padding:.29rem .45rem}.nav-links .optional{display:none}
+      .hero{align-items:end;min-height:0}.hero-art{bottom:auto;height:min(86vw,450px)}.hero-art img{object-position:80% 50%}.hero::before{background:linear-gradient(0deg,#0e0e10 0%,#0e0e10 40%,#0e0e1035 74%,transparent 100%)}.hero-copy{padding-block:min(62vw,340px) 3.9rem}.hero-tag{bottom:.9rem;font-size:.61rem}h1{font-size:clamp(4.25rem,16.8vw,7.8rem);margin-bottom:1rem}.hero-sub{margin-bottom:1.3rem}.actions{gap:8px}.button{padding:.64rem .83rem}.ticker .wrap{font-size:.63rem;gap:.65rem 1rem}
+      .intro,.arena-grid{grid-template-columns:1fr;gap:.95rem}.arena-grid{gap:1.75rem}.cards{grid-template-columns:1fr}.card{min-height:0}.icon{margin-bottom:.8rem}.score-grid{margin-top:1.35rem}.score,.score+.score{padding:.9rem .5rem .9rem .72rem}.score:first-child{padding-left:0}.score dt{font-size:.61rem;letter-spacing:.02em}.score dd{font-size:clamp(1.9rem,9vw,3.6rem)}.score dd span{font-size:.64rem;display:block;margin:.1rem 0 0;letter-spacing:-.02em}.stage{height:175px}.contact h2{font-size:clamp(2.3rem,10vw,4rem)}
+    }
+    .top::after{content:"";position:absolute;bottom:-1px;left:0;width:100%;height:2px;transform:scaleX(var(--reading,0));transform-origin:left;background:linear-gradient(90deg,var(--fire),var(--accent));pointer-events:none}
+    .hero-art{background:radial-gradient(ellipse at 83% 39%,#563320 0%,#201816 32%,var(--ink) 66%)}
+    .hero-art img{animation:cover-in 1.15s cubic-bezier(.2,.7,.3,1) both}
+    .hero-copy>*{animation:cover-copy .7s cubic-bezier(.2,.7,.3,1) both}
+    .hero-copy>h1{animation-delay:.06s}
+    .hero-copy>.hero-sub{animation-delay:.13s}
+    .hero-copy>.actions{animation-delay:.2s}
+    @keyframes cover-in{from{transform:scale(1.045);opacity:.35}to{transform:scale(1);opacity:1}}
+    @keyframes cover-copy{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+    .mark{background:var(--fire)}
+    .icon{border-color:#77503a;background:#35261e;transition:transform .25s}
+    .card:hover .icon{transform:rotate(-6deg)}
+    .card{background:radial-gradient(ellipse at var(--spot-x,50%) var(--spot-y,50%),#523222,var(--panel) 70%);background-size:100% 100%}
+    .tags li{border-color:#77503a}
+    .scores .eyebrow{color:#983905}
+    .score dd{color:#9f390b;transition:color .2s}
+    .score:hover dd{color:#693017}
+    .arena{background:radial-gradient(ellipse at 70% 60%,#35251c,#1c1717 58%,var(--ink) 85%)}
+    .game{border-color:#6b472e}
+    .stage{background:radial-gradient(ellipse,#442c20 0%,#171b24 70%)}
+    .stage::before{background:repeating-linear-gradient(0deg,transparent 0 18px,#ff9b5022 19px 20px),repeating-linear-gradient(90deg,transparent 0 18px,#ff9b5022 19px 20px)}
+    .helmet.hero-helmet{background:linear-gradient(143deg,#ee424e 0 9%,#27242b 12% 70%,#a72931 83%,#160e17 90%)}
+    .move{border-color:#6b472e}
+    .burst{position:absolute;width:11rem;aspect-ratio:1;pointer-events:none;opacity:0}
+    .burst::before,.burst::after{content:"";position:absolute;inset:28%;border:2px solid #a1e6ff;border-radius:50%;box-shadow:0 0 15px #5cbcff,inset 0 0 12px #5cbcff}
+    .burst::after{inset:15%;border-style:dashed}
+    @keyframes impact{0%{transform:scale(.28) rotate(-22deg);opacity:0}30%{opacity:1}100%{transform:scale(1.3) rotate(12deg);opacity:0}}
+    .contact{background:radial-gradient(ellipse at 50% 100%,#392518,transparent 66%)}
+    .chapter-title{
+      text-transform:uppercase;font-style:italic;line-height:.95;
+      font-size:clamp(2.65rem,6.2vw,6.1rem);text-wrap:balance;
+    }
+    .chapter-title em{color:var(--accent);font-style:inherit}
+    .scores .chapter-title em{color:#a74213}
+    #profile{position:relative;background:radial-gradient(ellipse at 80% 0%,#272018,transparent 54%)}
+    .cards{grid-template-columns:1.14fr .86fr}
+    .card{isolation:isolate;min-height:200px}
+    .card.featured{
+      grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;
+      min-height:415px;padding:2rem;background:
+      radial-gradient(ellipse at var(--spot-x,80%) var(--spot-y,15%),#582e19,#2e211b 42%,#181616 76%);
+    }
+    .card.featured h3{font-size:clamp(1.8rem,3.6vw,3.55rem);line-height:1.02;margin-bottom:.5rem}
+    .card.featured p{max-width:24rem}
+    .card-glyph{
+      position:absolute;z-index:-1;right:.1em;top:-.1em;color:#ffb7891c;
+      font:850 clamp(6.5rem,16vw,15rem)/1 var(--display);pointer-events:none;
+      transition:color .35s,transform .65s cubic-bezier(.16,1,.3,1);
+    }
+    .card.featured .card-glyph{font-size:clamp(14rem,28vw,25rem);right:-.16em;top:-.12em}
+    .card:hover .card-glyph{color:#ffb78946;transform:rotate(-9deg) translate(-7px,9px)}
+    .robot-art{
+      position:absolute;inset:5% 4% auto auto;width:clamp(132px,26vw,270px);height:185px;
+      opacity:.94;pointer-events:none;isolation:isolate;
+    }
+    .robot-art::before{
+      content:"";position:absolute;inset:auto 2% 4px;height:19px;border-radius:50%;
+      border:1px solid #f8a573;background:#ff864429;box-shadow:0 0 30px #ff773b66;
+    }
+    .robot-mascot{
+      position:absolute;inset:9px 13% 12px;transform-origin:center 88%;
+      filter:drop-shadow(0 10px 12px #150c0d);
+    }
+    .robot-head,.robot-body,.robot-arm{position:absolute;border:1px solid #ffb780}
+    .robot-head{
+      inset:16% 13% auto;height:37%;z-index:2;border-radius:18% 18% 23% 23%;
+      background:linear-gradient(148deg,#ffbe89 0 12%,#b77756 18% 27%,#503948 49%,#2f2532 78%);
+      box-shadow:inset 0 0 0 4px #21151e8c;
+    }
+    .robot-head::before{
+      content:"";position:absolute;bottom:100%;left:47%;width:4px;height:23px;
+      background:#df9370;border-radius:4px 4px 0 0;box-shadow:0 -5px 0 2px #ffc28c,0 -5px 12px #ff945c;
+    }
+    .robot-eye{
+      position:absolute;top:43%;left:16%;right:16%;height:20%;border-radius:100% 26% 90% 27%;
+      background:#fff0d0;box-shadow:0 0 12px #ffb377,inset 0 0 5px #ff763e;transform:rotate(-7deg);
+    }
+    .robot-body{
+      inset:51% 22% auto;height:38%;border-radius:16% 16% 33% 33%;
+      background:radial-gradient(circle at 50% 45%,#ffcd8b 0 8%,#ca744c 9% 14%,#2f2333 15% 31%,#59414e 32% 58%,#35242d 59%);
+    }
+    .robot-arm{
+      inset:51% auto auto 12%;width:18%;height:30%;rotate:27deg;border-radius:.45rem;
+      background:linear-gradient(90deg,#432e37,#bc7b59,#382631);
+    }
+    .robot-arm:last-child{left:auto;right:12%;rotate:-36deg}
+    .robot-art::after{
+      content:"";position:absolute;inset:auto 9% 0;height:19px;border:2px solid #ffb376;
+      border-radius:50%;box-shadow:0 0 18px #ff894f;opacity:0;pointer-events:none;
+    }
+    .card[data-card-playing] .robot-art::after{animation:robot-ring .55s .06s ease-out both}
+    @keyframes robot-ring{from{opacity:.8;scale:.35 .6}to{opacity:0;scale:1.44 1.1}}
+    .card[data-card-playing] .robot-mascot{
+      animation:robot-pop .63s cubic-bezier(.13,.7,.22,1) both;
+    }
+    .card[data-card-live]:not([data-card-playing]) .robot-mascot{
+      animation:robot-idle 3.7s ease-in-out alternate infinite;
+    }
+    @keyframes robot-idle{to{transform:translateY(-5px) rotate(1.6deg)}}
+    @keyframes robot-pop{
+      0%{opacity:.15;transform:translateY(58px) scale(.65,.8) rotate(-12deg)}
+      28%{opacity:1;transform:translateY(-19px) scale(1.05,1.13) rotate(8deg)}
+      52%{transform:translateY(5px) scale(1.08,.93) rotate(-4deg)}
+      70%{transform:translateY(-4px) scale(.99,1.03) rotate(1deg)}
+      100%{opacity:1;transform:none}
+    }
+    .card[data-card-playing] .robot-eye{animation:robot-blink .49s .23s ease both}
+    @keyframes robot-blink{35%,54%{transform:rotate(-7deg) scaleY(.13)}}
+    .terminal-art{
+      position:relative;overflow:hidden;width:min(100%,310px);min-height:88px;margin-bottom:.85rem;padding:.6rem .74rem;
+      border:1px solid #52b77d;background:#0d1815;color:#96f4af;box-shadow:0 0 21px #57cd6135;
+      font:650 clamp(.7rem,1.4vw,.82rem)/1.48 var(--mono);white-space:nowrap;
+    }
+    .terminal-art::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+      background:repeating-linear-gradient(transparent 0 3px,#6cf6a317 3px 4px);
+    }
+    .terminal-art::after{
+      content:"";position:absolute;inset:0 0 auto;height:18px;background:linear-gradient(transparent,#8effb42e,transparent);
+      translate:0 -24px;pointer-events:none;
+    }
+    .card[data-card-playing] .terminal-art::after{
+      animation:terminal-scan .69s cubic-bezier(.27,.62,.38,1) both;
+    }
+    .terminal-art span{display:block}
+    .card[data-card-playing] .terminal-art span{
+      animation:terminal-type .32s steps(17,end) both;animation-delay:var(--type-delay,0s);
+    }
+    .terminal-art span:nth-child(2){--type-delay:.12s}
+    .terminal-art span:nth-child(3){--type-delay:.24s}
+    .terminal-art b{font-weight:inherit}
+    .card[data-card-live] .terminal-art b{animation:terminal-cursor 1.4s ease-in-out infinite alternate}
+    @keyframes terminal-cursor{from{opacity:.36}to{opacity:1}}
+    @keyframes terminal-type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+    @keyframes terminal-scan{to{translate:0 95px}}
+    .replay-card{
+      align-self:flex-start;margin-top:.8rem;padding:.26rem .54rem;min-height:35px;
+      border:1px solid #a67051;background:#24191a;color:#ffd1a9;font:700 .76rem var(--mono);
+    }
+    .replay-card:hover{background:#3a2825}
+    .card[data-reveal="waiting"]::before,.game[data-reveal="waiting"]::before{transform:scaleX(0)}
+    .card::before,.game::before{
+      content:"";position:absolute;left:0;right:0;top:0;height:1px;
+      background:linear-gradient(90deg,#ffa161,transparent 78%);
+      transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1);
+      pointer-events:none;
+    }
+    .game{position:relative}
+    .scores{
+      background:repeating-linear-gradient(-52deg,transparent 0 17px,#c25b2110 17px 18px) top right/30% 100% no-repeat,#fff9f2;
+    }
+    .number{display:inline-block}
+    .score[data-reveal="visible"] .number{animation:number-snap .64s cubic-bezier(.16,1,.3,1) both}
+    @keyframes number-snap{0%{transform:translateY(.26em) skewY(7deg);opacity:.1}100%{transform:none;opacity:1}}
+    .contact .wrap{
+      position:relative;isolation:isolate;overflow:hidden;padding:clamp(1.65rem,5vw,4.5rem) 1.15rem;
+      background:linear-gradient(116deg,#231913,#392518 50%,#201717);border:1px solid #745039;
+    }
+    .contact .wrap::before,.contact .wrap::after{
+      content:"";position:absolute;z-index:-1;inset:-20% auto -20% 8%;width:9%;
+      transform:skewX(-20deg);border-inline:1px solid #ff9b5033;background:#ff9b5009;
+    }
+    .contact .wrap::after{left:auto;right:8%;width:6%}
+    .next{background:#151313;border-bottom:1px solid var(--line)}
+    .next-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.15fr);gap:2rem 4.5rem}
+    .next-copy .lede{margin-bottom:0}
+    .roadmap{margin:0;padding:0;list-style:none;counter-reset:step}
+    .roadmap li{
+      position:relative;display:grid;grid-template-columns:2.3rem 1fr;gap:.95rem;
+      counter-increment:step;padding:1.2rem .2rem;border-top:1px solid #624333;
+    }
+    .roadmap li:last-child{border-bottom:1px solid #624333}
+    .roadmap li::before{content:"0" counter(step);font:800 .78rem/1.95 var(--mono);color:var(--accent)}
+    .roadmap h3{margin:0 0 .3rem;font-size:1.15rem;line-height:1.35}
+    .roadmap p{margin:0;color:var(--muted);font-size:.95rem;max-width:35rem}
+    .roadmap li::after{
+      content:"";position:absolute;inset:-1px 0 auto;height:1px;transform:scaleX(0);transform-origin:left;
+      background:linear-gradient(90deg,var(--accent),#ffffff30);transition:transform .9s cubic-bezier(.16,1,.3,1);
+    }
+    .roadmap li[data-reveal="visible"]::after,.roadmap li:hover::after{transform:scaleX(1)}
+    .strategy{background:#161313;border-block:1px solid var(--line)}
+    .strategy-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.75fr);gap:clamp(1.5rem,6vw,6rem);align-items:center}
+    .strategy .lede{margin-bottom:1.4rem}
+    .checklist{padding:0;margin:0;list-style:none}
+    .checklist li{padding:.7rem 0;border-top:1px solid #5d4130;color:var(--muted)}
+    .checklist strong{color:var(--paper);margin-right:.35em}
+    .chess{
+      inline-size:min(100%,430px);justify-self:center;background:#171315;border:1px solid #9c5b3b;
+      box-shadow:8px 8px #09090b,0 0 40px #a8421930;
+    }
+    .chess-head,.chess-foot{display:flex;align-items:center;justify-content:space-between;gap:.55rem;padding:.65rem .75rem}
+    .chess-head h3{margin:0;font:800 .87rem var(--mono);text-transform:uppercase;letter-spacing:.04em}
+    .chess-head small{color:#ffcf86;font:.73rem var(--mono)}
+    .chess-frame{position:relative;container-type:inline-size}
+    .chess-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr))}
+    .chess-square{
+      position:relative;isolation:isolate;display:grid;place-items:center;min-width:0;aspect-ratio:1;
+      border:0;padding:0;background:#e1b382;color:#251716;
+    }
+    .chess-square[data-dark]{background:#a6674d}
+    .chess-square:focus-visible{outline:3px solid #a6e8ff;outline-offset:-3px;z-index:3}
+    .chess-square[aria-pressed="true"]{box-shadow:inset 0 0 0 3px #006b82;background:#9fdaeb}
+    .chess-square[data-last]{background:#c7a556}
+    .chess-square[data-check]{background:#fc6d6d}
+    .chess-square[data-legal]::after{
+      content:"";position:absolute;inset:38%;border-radius:50%;background:#192a34bb;pointer-events:none;
+    }
+    .chess-square[data-legal][data-color]::after{inset:4%;background:transparent;border:3px solid #192a34bb}
+    .chess-piece{
+      position:relative;z-index:1;pointer-events:none;
+      font:clamp(1.15rem,10cqi,2.6rem)/1 "Segoe UI Symbol","DejaVu Sans",sans-serif;
+    }
+    .chess-square[data-color="w"] .chess-piece{color:#fff5de;text-shadow:1px 1px 1px #33251d,-1px -1px 1px #33251d}
+    .chess-square[data-color="b"] .chess-piece{color:#251722;text-shadow:0 1px 1px #ffe0ab75}
+    .square-coordinate{position:absolute;left:2px;bottom:1px;font:700 clamp(.52rem,2.3cqi,.68rem) var(--mono);pointer-events:none}
+    .chess-square[data-arrived] .chess-piece{animation:chess-land .33s cubic-bezier(.18,.8,.3,1) both}
+    @keyframes chess-land{from{transform:translateY(-.22em) scale(1.17)}to{transform:none}}
+    .chess-status{margin:0;font-size:.84rem;color:#ffdeb4}
+    .chess-reset,.promotion button{
+      color:#ffe2bd;background:#2e2020;border:1px solid #a87560;min-height:36px;padding:.32rem .58rem;white-space:nowrap;
+    }
+    .chess-reset:hover,.promotion button:hover{background:#49302b}
+    .promotion{
+      position:absolute;z-index:4;inset:30% .35rem auto;display:grid;justify-items:center;gap:.5rem;padding:.85rem .4rem;
+      background:#23181a;border:1px solid #ffcf86;box-shadow:0 8px 28px #100b0cbb;text-align:center;
+    }
+    .promotion div{display:flex;flex-wrap:wrap;justify-content:center;gap:.22rem}
+    .locked{
+      border-bottom:1px solid var(--line);
+      background:radial-gradient(ellipse at 85% 12%,#3b2418,transparent 58%),#141213;
+    }
+    .milestones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0;margin:0;list-style:none}
+    .milestone{
+      position:relative;isolation:isolate;overflow:hidden;
+      min-height:170px;padding:1.5rem;border:1px solid #72503a;background:#1a1717;
+    }
+    .milestone::after{
+      content:"";position:absolute;z-index:-1;inset:-30% -15%;
+      background:linear-gradient(110deg,transparent 37%,#ff965033 50%,transparent 61%);
+      translate:-85% 0;pointer-events:none;
+    }
+    .milestone[data-reveal="visible"]::after{animation:unlock-scan .9s ease-out var(--delay,0ms) both}
+    @keyframes unlock-scan{to{translate:85% 0}}
+    .padlock{
+      position:relative;display:block;margin:.6rem 0 .9rem;width:1.28rem;height:.94rem;
+      border:1px solid #ffad75;background:#6f4129;border-radius:2px;
+    }
+    .padlock::before{
+      content:"";position:absolute;bottom:100%;left:19%;width:62%;height:70%;
+      border:1px solid #ffad75;border-bottom:0;border-radius:8px 8px 0 0;
+    }
+    .padlock::after{content:"";position:absolute;inset:26% 43%;background:#ffcfad;border-radius:2px}
+    .milestone[data-reveal="visible"] .padlock{animation:lock-click .5s cubic-bezier(.2,.8,.3,1) var(--delay,0ms) both}
+    @keyframes lock-click{0%{translate:0 -11px;opacity:.4}65%{translate:0 3px}100%{translate:0 0;opacity:1}}
+    .milestone h3{font-size:1.24rem;margin-bottom:.3rem}
+    .milestone p{margin:0;color:var(--muted);font-size:.95rem}
+    .milestone-link{display:inline-block;margin-top:1rem;color:var(--accent);font-weight:750}
+    .milestone-link:hover{text-decoration:underline;text-underline-offset:.2em}
+    body{overflow-x:clip}
+    .unlock-trigger{
+      margin-top:.9rem;min-height:44px;padding:.45rem .8rem;border:1px solid #bd5a5c;
+      background:#27181d;color:#ffb1ad;font-weight:750;
+    }
+    .unlock-trigger:hover{background:#382127;color:#ffdbd7}
+    .unlock-message{
+      position:fixed;z-index:20;inset:0;display:grid;place-items:center;
+      padding:1rem;pointer-events:none;
+    }
+    .unlock-message span{
+      max-width:100%;padding:.32em .36em .36em;
+      border:1px solid #ff4e64;background:#210912;color:#ff4e64;
+      box-shadow:0 0 34px #ff30465c,inset 0 0 25px #ff304629;
+      text-shadow:0 0 20px #ff385870;text-align:center;
+      font:italic 900 clamp(2.35rem,9.2vw,7.5rem)/1 var(--display);letter-spacing:-.055em;
+      transform:scale(.93);opacity:0;transition:opacity .12s ease,transform .2s cubic-bezier(.18,.8,.3,1);
+    }
+    .unlock-message[data-active] span{opacity:1;transform:none}
+    [data-reveal="visible"] .chapter-title em,[data-reveal="visible"].chapter-title em{
+      display:inline-block;animation:chapter-accent .7s cubic-bezier(.16,1,.3,1) both;
+    }
+    @keyframes chapter-accent{
+      from{clip-path:inset(-.2em 100% -.24em -.15em);translate:-.14em 0}
+      to{clip-path:inset(-.2em -.25em -.24em -.15em);translate:0 0}
+    }
+    .roadmap li[data-reveal="visible"]::before{animation:step-in .56s ease both}
+    @keyframes step-in{from{opacity:0;translate:-.4em 0}to{opacity:1;translate:0 0}}
+    [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.65,.3,1);transition-delay:var(--delay,0ms)}
+    [data-reveal="visible"]{opacity:1;transform:none}
+    .hero-copy{position:relative}
+    .hero-copy h1{
+      color:#fff4e8;
+      text-shadow:0 .055em .24em #0707078f;
+      animation:name-in .9s cubic-bezier(.16,1,.3,1) .05s both;
+    }
+    @keyframes name-in{
+      from{opacity:0;clip-path:inset(0 100% -22% -8%);transform:translateX(-.14em)}
+      to{opacity:1;clip-path:inset(-14% -12% -24% -8%);transform:translateX(0)}
+    }
+    .highlight{
+      color:#ffd0ac;
+      font-weight:800;
+      text-decoration:underline;
+      text-decoration-color:#ff9b50a0;
+      text-decoration-thickness:.09em;
+      text-underline-offset:.18em;
+    }
+    .hero-art img{translate:var(--drift-x,0) var(--drift-y,0);transition:translate .55s cubic-bezier(.16,1,.3,1)}
+    .fight-scene{
+      position:absolute;inset:0 0 0 auto;width:72%;height:100%;object-fit:cover;
+      opacity:0;transition:opacity .28s ease;pointer-events:none;
+      mask-image:linear-gradient(90deg,transparent,#000 20%);
+    }
+    .hero-art[data-fighting] .fight-scene{opacity:1}
+    .arena-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+    .stage[data-canvas] .fighters{visibility:hidden}
+    .watch-fight{
+      margin-top:.9rem;padding:.35rem 0;min-height:38px;
+      border:0;background:transparent;color:var(--accent);
+      font:750 .76rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.075em;
+    }
+    .watch-fight:hover{color:var(--paper)}
+    .watch-fight[aria-disabled="true"]{cursor:default}
+    .hero-art::after{
+      content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+      background:radial-gradient(ellipse at 82% 33%,#2c86e3a0 0%,transparent 23%),
+                 radial-gradient(ellipse at 48% 56%,#2974bf50 0%,transparent 19%);
+      animation:flame-light 2.3s ease-out both;
+    }
+    @keyframes flame-light{0%,100%{opacity:0}30%{opacity:.5}57%{opacity:.18}}
+    .cover-slash{
+      position:absolute;top:16%;left:45%;width:clamp(220px,42vw,620px);height:3px;
+      pointer-events:none;opacity:0;rotate:-29deg;transform-origin:left;
+      background:linear-gradient(90deg,transparent,#fff4e8 42%,var(--accent) 84%,transparent);
+      box-shadow:0 0 18px #ff7f41;
+      animation:cover-slash .65s cubic-bezier(.17,.72,.25,1) .28s both;
+    }
+    .cover-slash::after{
+      content:"";position:absolute;left:15%;top:10px;width:63%;height:1px;
+      background:linear-gradient(90deg,transparent,#a6e8ff,transparent);
+      box-shadow:0 0 9px #51adff;
+    }
+    @keyframes cover-slash{
+      0%{opacity:0;transform:translate(-15%,55px) scaleX(.17)}
+      24%{opacity:.84}
+      65%{opacity:.47}
+      100%{opacity:0;transform:translate(21%,-42px) scaleX(1.14)}
+    }
+    .actions .button span,.contact .button span{transition:transform .28s cubic-bezier(.16,1,.3,1)}
+    .actions .button:hover span,.contact .button:hover span{transform:translate(3px,-2px)}
+    .card::after,.score::after{
+      content:"";position:absolute;pointer-events:none;inset:auto 0 0;height:2px;
+      background:linear-gradient(90deg,var(--accent),#ff9b5020);
+      transform:scaleX(0);transform-origin:left;
+      transition:transform .52s cubic-bezier(.16,1,.3,1);
+    }
+    .score{position:relative}
+    .card:hover::after,.score[data-reveal="visible"]::after,.score:hover::after{transform:scaleX(1)}
+    [data-reveal="visible"] .card h3,.card[data-reveal="visible"] h3{animation:headline-in .7s ease-out both}
+    @keyframes headline-in{0%{color:#ffbc8c}100%{color:var(--paper)}}
+    .stage[data-action="dodge"] .hero-helmet{animation:dodge .52s cubic-bezier(.2,.75,.24,1)}
+    .stage[data-action="shield"] .hero-helmet{animation:guard .5s ease-out}
+    .stage[data-action="counter"] .hero-helmet{animation:lunge .43s cubic-bezier(.2,.75,.24,1)}
+    .stage:is([data-action="dodge"],[data-action="shield"],[data-action="counter"]) .robot{animation:recoil .44s ease}
+    .stage:is([data-action="shield"],[data-action="counter"]) .burst{animation:impact .56s ease-out}
+    .signal{position:absolute;pointer-events:none;opacity:0}
+    .stage[data-threat="probe"] .signal{
+      width:55%;height:2px;right:14%;top:45%;transform-origin:right;
+      background:linear-gradient(90deg,transparent,var(--accent),#ffe0c7);box-shadow:0 0 12px #ff863b;
+      animation:scan .8s cubic-bezier(.2,.7,.3,1) both;
+    }
+    .stage[data-threat="shockwave"] .signal{
+      width:22%;height:50%;right:17%;bottom:7%;border:2px solid #ffae6b;border-radius:50%;
+      box-shadow:0 0 12px #f48942;animation:wave .75s ease-out both;
+    }
+    .stage[data-threat="exposed"] .robot{animation:core-flash .7s ease-out}
+    @keyframes scan{0%{opacity:0;transform:rotate(18deg) scaleX(.15)}27%{opacity:.8}100%{opacity:0;transform:rotate(-8deg) scaleX(1)}}
+    @keyframes wave{15%{opacity:.82;transform:scale(.3,.18)}100%{opacity:0;transform:scale(3.8,.62)}}
+    @keyframes core-flash{24%{filter:brightness(2.4) saturate(1.7)}53%{filter:brightness(1.1)}74%{filter:brightness(1.8)}}
+    @keyframes dodge{32%{translate:-20px 15px;rotate:-13deg}60%{translate:8px -5px;rotate:4deg}}
+    @keyframes guard{24%{transform:scale(.91);filter:brightness(1.65)}58%{transform:scale(1.06);filter:brightness(1.35)}}
+    @media(max-width:650px){
+      .hero-art img{object-position:82% 50%}
+      .fight-scene{width:100%;mask-image:none}
+      .hero-art::after{display:none}
+      .cover-slash{top:14%;left:36%;width:59vw}
+      .nav-links .nav-contact{min-height:38px;display:inline-flex;align-items:center}
+      .hero-sub{max-width:23rem}
+      .next-grid{grid-template-columns:1fr;gap:1.35rem}
+      .strategy-grid,.milestones{grid-template-columns:1fr}
+      .chess{inline-size:min(100%,390px)}
+      .milestone{min-height:0;padding:1.2rem}
+      .roadmap li{padding:1rem 0;grid-template-columns:1.65rem 1fr;gap:.7rem}
+      .cards{grid-template-columns:1fr}
+      .card{min-height:148px}
+      .card.featured{min-height:268px}
+      .robot-art{top:2%;right:4%;height:119px}
+      .robot-head::before{height:13px}
+      .card.featured .card-glyph{font-size:14.5rem}
+      .chapter-title{font-size:clamp(2.5rem,10.8vw,4.2rem)}
+    }
+    [data-chapter="cover"],[data-chapter="profile"]{--chapter-color:#ff9b50}
+    [data-chapter="strategy"]{--chapter-color:#ffcf72}
+    [data-chapter="results"]{--chapter-color:#ffae7d}
+    [data-chapter="arena"]{--chapter-color:#79d8ff}
+    [data-chapter="next"]{--chapter-color:#cbb2ff}
+    [data-chapter="achievements"]{--chapter-color:#ffa18d}
+    [data-chapter="contact"]{--chapter-color:#ffb965}
+    .top::after{
+      background:linear-gradient(90deg,var(--fire),var(--scroll-color,var(--accent)));
+      box-shadow:0 0 12px var(--scroll-color,var(--accent));
+    }
+    .top .mark{background:var(--scroll-color,var(--fire))}
+    .nav-links a:hover{color:var(--scroll-color,var(--accent))}
+    main>section[data-chapter]:not(.hero){
+      position:relative;isolation:isolate;--accent:var(--chapter-color);
+    }
+    main>section[data-chapter]:not(.hero)::before{
+      content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse at var(--wash-position,72%) 12%,
+          color-mix(in srgb,var(--chapter-color) var(--wash-strength,23%),transparent),transparent 65%),
+        linear-gradient(145deg,color-mix(in srgb,var(--chapter-color) 8%,transparent),transparent 68%);
+    }
+    main>section[data-chapter]:not(.hero)::after{
+      content:"";position:absolute;inset:0 0 auto;height:1px;pointer-events:none;
+      background:radial-gradient(ellipse at var(--wash-position,72%) 50%,var(--chapter-color),transparent 70%);
+      opacity:.68;
+    }
+    main>section.scores[data-chapter]{--wash-strength:37%}
+    main>section.arena[data-chapter]{background:#111621;--wash-strength:26%}
+    main>section.next[data-chapter]{background:#191322}
+    .arena .game{border-color:#3a6f87}
+    .arena .move{border-color:#385c6d}
+    .arena .guide summary,.arena .game-head b{color:var(--chapter-color)}
+    .next .roadmap li{border-color:#655179}
+    .chapter-secret{
+      position:absolute;z-index:-1;inset:0;overflow:hidden;pointer-events:none;
+      color:var(--chapter-color);--origin:translateX(-28%) scale(.75);--finish:translateX(32%) scale(1.15);
+    }
+    .chapter-secret::before,.chapter-secret::after{content:"";position:absolute;opacity:0}
+    .chapter-secret[data-playing]::before{animation:secret-pulse 1.12s cubic-bezier(.18,.66,.32,1) both}
+    .chapter-secret[data-playing]::after{animation:secret-pulse .88s cubic-bezier(.18,.66,.32,1) .16s both}
+    @keyframes secret-pulse{
+      0%{opacity:0;transform:var(--origin)}
+      27%{opacity:var(--peak,.67)}
+      67%{opacity:calc(var(--peak,.67) * .48)}
+      100%{opacity:0;transform:var(--finish)}
+    }
+
+    [data-chapter="cover"] .chapter-secret{color:#8cdfff;--origin:translate(-45%,28px);--finish:translate(62%,-42px)}
+    [data-chapter="cover"] .chapter-secret::before,
+    [data-chapter="cover"] .chapter-secret::after{
+      top:29%;right:13%;width:clamp(180px,46vw,620px);height:2px;rotate:-27deg;
+      background:linear-gradient(90deg,transparent,currentColor 70%,transparent);
+      box-shadow:0 0 14px currentColor;
+    }
+    [data-chapter="cover"] .chapter-secret::after{top:33%;right:6%;width:21%;height:1px;color:#ffc28d}
+
+    [data-chapter="profile"] .chapter-secret{--origin:scale(.64) translate(30px,24px);--finish:scale(1.2) translate(-24px,-17px)}
+    [data-chapter="profile"] .chapter-secret::before,
+    [data-chapter="profile"] .chapter-secret::after{
+      inset:8% 9% auto auto;width:29%;height:38%;border:1px solid currentColor;
+      clip-path:polygon(0 0,100% 0,100% 100%,88% 100%,88% 12%,0 12%);
+      background:linear-gradient(-135deg,#ff9b5052,transparent 40%);
+    }
+    [data-chapter="profile"] .chapter-secret::after{inset:14% 13% auto auto;width:21%;height:26%}
+
+    [data-chapter="strategy"] .chapter-secret{--origin:rotate(-11deg) scale(.64);--finish:rotate(8deg) scale(1.16)}
+    [data-chapter="strategy"] .chapter-secret::before,
+    [data-chapter="strategy"] .chapter-secret::after{
+      right:11%;top:17%;width:clamp(120px,31vw,410px);aspect-ratio:1;
+      border:1px dashed currentColor;rotate:45deg;
+    }
+    [data-chapter="strategy"] .chapter-secret::after{right:16%;top:24%;width:clamp(80px,22vw,290px);border-style:solid}
+
+    [data-chapter="results"] .chapter-secret{color:#d46b32;--origin:translateX(-85%);--finish:translateX(85%);--peak:.47}
+    [data-chapter="results"] .chapter-secret::before,
+    [data-chapter="results"] .chapter-secret::after{
+      inset:17% auto auto 24%;width:52%;height:2px;rotate:-9deg;
+      background:linear-gradient(90deg,transparent,currentColor,transparent);
+    }
+    [data-chapter="results"] .chapter-secret::after{inset:73% auto auto 21%;width:45%;height:1px}
+
+    [data-chapter="arena"] .chapter-secret{--origin:scale(.32);--finish:scale(1.65)}
+    [data-chapter="arena"] .chapter-secret::before,
+    [data-chapter="arena"] .chapter-secret::after{
+      top:10%;right:6%;width:clamp(170px,36vw,490px);aspect-ratio:1;
+      border:1px solid currentColor;border-radius:50%;box-shadow:0 0 19px #73d8ff55;
+    }
+    [data-chapter="arena"] .chapter-secret::after{top:13%;right:13%;width:clamp(120px,25vw,320px);border-style:dashed}
+
+    [data-chapter="next"] .chapter-secret{--origin:translateY(-48%) scaleY(.48);--finish:translateY(40%) scaleY(1.06)}
+    [data-chapter="next"] .chapter-secret::before,
+    [data-chapter="next"] .chapter-secret::after{
+      top:12%;right:10%;width:2px;height:65%;
+      background:linear-gradient(transparent,currentColor,transparent);box-shadow:0 0 18px currentColor;
+    }
+    [data-chapter="next"] .chapter-secret::after{right:13%;width:1px;height:49%}
+
+    [data-chapter="achievements"] .chapter-secret{--origin:translateY(-42px) scaleX(.45);--finish:translateY(115px) scaleX(1.16)}
+    [data-chapter="achievements"] .chapter-secret::before,
+    [data-chapter="achievements"] .chapter-secret::after{
+      top:12%;right:6%;width:55%;height:2px;
+      background:linear-gradient(90deg,transparent,currentColor,transparent);box-shadow:0 0 13px currentColor;
+    }
+    [data-chapter="achievements"] .chapter-secret::after{top:18%;right:11%;width:39%;height:1px}
+
+    [data-chapter="contact"] .chapter-secret{--origin:scale(.54);--finish:scale(1.25)}
+    [data-chapter="contact"] .chapter-secret::before,
+    [data-chapter="contact"] .chapter-secret::after{
+      top:19%;left:5%;width:clamp(90px,21vw,260px);aspect-ratio:1;rotate:45deg;
+      border:1px solid currentColor;box-shadow:0 0 22px #ffb96552;
+    }
+    [data-chapter="contact"] .chapter-secret::after{left:auto;right:5%;top:31%;width:clamp(68px,16vw,200px)}
+    @media(max-width:650px){
+      [data-chapter="strategy"] .chapter-secret::before,
+      [data-chapter="strategy"] .chapter-secret::after{top:auto;bottom:13%}
+      [data-chapter="arena"] .chapter-secret::before,
+      [data-chapter="arena"] .chapter-secret::after{top:32%}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true">D</span>Daniel’s Portfolio</a>
+      <div class="nav-links">
+        <a class="optional" href="#profile">Profile</a>
+        <a class="optional" href="#results">Results</a>
+        <a href="#arena">Arena</a>
+        <a class="optional" href="#next">What’s next</a>
+        <a class="nav-contact" href="#contact">Contact ↗</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" data-chapter="cover" aria-labelledby="hero-title">
+      <div class="hero-art">
+        <img src="robot-uprising.jpg" width="1536" height="1024" fetchpriority="high" alt="A superhero in black armor with red outlines and blue flames clashes with a giant robot.">
+        <canvas class="fight-scene" width="960" height="640" aria-hidden="true"></canvas>
+      </div>
+      <div class="cover-slash" aria-hidden="true"></div>
+      <div class="wrap hero-copy">
+        <p class="eyebrow">Freshman · Aditya University</p>
+        <h1 id="hero-title">Daniel</h1>
+        <p class="hero-sub">I’m drawn to <strong class="highlight">robotics</strong>, <strong class="highlight">chess</strong>, and problems that make me think a move ahead.</p>
+        <div class="actions">
+          <a class="button" href="#arena">Enter the arena <span aria-hidden="true">↗</span></a>
+          <a class="button ghost" href="#profile">Explore my profile <span aria-hidden="true">↓</span></a>
+        </div>
+        <button class="watch-fight" id="watch-fight" type="button" hidden>▶ Watch the fight</button>
+      </div>
+      <div class="hero-tag"><span aria-hidden="true">◆</span> The robot uprising · Comic cover</div>
+    </section>
+
+    <div class="ticker">
+      <div class="wrap"><span><strong aria-hidden="true">✦</strong> Robotics</span><span><strong aria-hidden="true">✦</strong> Chess</span><span><strong aria-hidden="true">✦</strong> C / C++</span><span><strong aria-hidden="true">✦</strong> Problem solving</span></div>
+    </div>
+
+    <section id="profile" data-chapter="profile" aria-labelledby="profile-title">
+      <div class="wrap">
+        <div class="intro">
+          <div><p class="eyebrow">Profile</p><h2 class="chapter-title" id="profile-title">What <em>drives me</em></h2></div>
+          <p class="lede">I’m a freshman at Aditya University. I want to get involved wherever I can, meet people who enjoy thinking critically, and eventually <strong class="highlight">launch my own startup</strong>.</p>
+        </div>
+        <div class="cards">
+          <article class="card featured" data-motion-card>
+            <div class="robot-art" aria-hidden="true">
+              <div class="robot-mascot">
+                <span class="robot-head"><span class="robot-eye"></span></span>
+                <span class="robot-body"></span><span class="robot-arm"></span><span class="robot-arm"></span>
+              </div>
+            </div>
+            <h3>Robotics</h3>
+            <p>I’m curious about how code, sensors, and mechanics come together to make a robot move.</p>
+            <button class="replay-card" type="button" aria-label="Replay robotics animation">↻ Replay</button>
+          </article>
+          <article class="card">
+            <span class="card-glyph" aria-hidden="true">♞</span>
+            <div class="icon" aria-hidden="true">♞</div><h3>Chess &amp; strategy</h3>
+            <p>I enjoy weighing my options, spotting patterns, and working out what might happen after the next move.</p>
+          </article>
+          <article class="card" data-motion-card>
+            <div class="terminal-art" aria-hidden="true">
+              <span>&gt; boot compiler_</span>
+              <span>&gt; C / C++ ready</span>
+              <span>&gt; build: success <b>█</b></span>
+            </div>
+            <h3>Programming</h3>
+            <p>I’m building my problem-solving skills with two languages.</p>
+            <ul class="tags" aria-label="Programming languages"><li>C</li><li>C++</li></ul>
+            <button class="replay-card" type="button" aria-label="Replay programming animation">↻ Replay</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="strategy" id="strategy" data-chapter="strategy" aria-labelledby="strategy-title">
+      <div class="wrap strategy-grid">
+        <div class="strategy-copy">
+          <p class="eyebrow">Chess &amp; problem solving</p>
+          <h2 class="chapter-title" id="strategy-title">Think a <em>move ahead</em></h2>
+          <p class="lede">Chess gives me a way to practice a skill I want to get better at everywhere else. Before I commit to a move, I ask what changes and what might happen next.</p>
+          <ul class="checklist">
+            <li><strong>Read the position.</strong> Work out what matters before jumping in.</li>
+            <li><strong>Compare options.</strong> Look at what each choice opens up or closes off.</li>
+            <li><strong>Review the result.</strong> If an idea falls short, figure out where my reasoning broke down.</li>
+          </ul>
+        </div>
+        <div class="chess" id="chess-game" role="group" aria-label="Play chess against the computer" hidden>
+          <div class="chess-head"><h3>Play chess</h3><small>You play White</small></div>
+          <div class="chess-frame">
+            <div class="chess-grid" role="group" aria-label="Chessboard. Use arrow keys to move between squares."></div>
+            <div class="promotion" role="group" aria-label="Choose a promotion piece" hidden>
+              <strong>Promote pawn</strong>
+              <div>
+                <button type="button" data-promote="q">Queen</button>
+                <button type="button" data-promote="r">Rook</button>
+                <button type="button" data-promote="b">Bishop</button>
+                <button type="button" data-promote="n">Knight</button>
+              </div>
+              <button type="button" class="promotion-cancel">Cancel</button>
+            </div>
+          </div>
+          <div class="chess-foot">
+            <p class="chess-status" role="status" aria-live="polite"></p>
+            <button class="chess-reset" type="button">New game</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scores" id="results" data-chapter="results" aria-labelledby="scores-title">
+      <div class="wrap">
+        <p class="eyebrow">Academics</p><h2 class="chapter-title" id="scores-title">My <em>results</em></h2>
+        <dl class="score-grid">
+          <div class="score"><dt>10th standard</dt><dd><b class="number">95</b><span>%</span></dd></div>
+          <div class="score"><dt>Intermediate</dt><dd><b class="number">95</b><span>%</span></dd></div>
+          <div class="score"><dt>JEE Main</dt><dd><b class="number">90</b><span>percentile</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="arena" id="arena" data-chapter="arena" aria-labelledby="arena-title" hidden>
+      <div class="wrap arena-grid">
+        <div class="arena-copy">
+          <p class="eyebrow">Playable encounter</p>
+          <h2 class="chapter-title" id="arena-title">Robot <em>uprising</em></h2>
+          <p class="lede">Take the controls as Daniel. Read each robot’s signal and pick the right move in this three-round strategy challenge.</p>
+          <details class="guide"><summary>How to play</summary><p>Dodge a tracking beam, shield against a shockwave, and counter when a robot’s core is exposed.</p></details>
+        </div>
+        <div class="game" aria-label="Robot uprising game">
+          <div class="game-head"><span id="round">Standby</span><b id="score">Score 0 / 3</b></div>
+          <div class="stage" id="stage" aria-hidden="true"><div class="fighters"><div class="helmet hero-helmet"></div><span class="vs">VS</span><div class="helmet robot"></div></div><canvas class="arena-scene" width="960" height="432" hidden></canvas><div class="signal"></div><div class="burst"></div></div>
+          <div class="game-body">
+            <p id="game-status" aria-live="polite" aria-atomic="true">Three robots are approaching. Start the encounter when you’re ready.</p>
+            <div class="moves" id="moves" hidden>
+              <button class="move" type="button" data-move="Dodge">Dodge</button>
+              <button class="move" type="button" data-move="Shield">Shield</button>
+              <button class="move" type="button" data-move="Counter">Counter</button>
+            </div>
+            <button class="button" type="button" id="advance">Start encounter <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="next" id="next" data-chapter="next" aria-labelledby="next-title">
+      <div class="wrap next-grid">
+        <div class="next-copy">
+          <p class="eyebrow">Looking ahead</p>
+          <h2 class="chapter-title" id="next-title">What’s <em>next</em></h2>
+          <p class="lede">My long-term goal is to start a company. These are the experiences I want to pursue as a freshman to figure out what I’d like to build and who I can learn from.</p>
+          <a class="milestone-link" href="#achievements">See future achievements <span aria-hidden="true">↓</span></a>
+        </div>
+        <ol class="roadmap">
+          <li><div><h3>Get involved on campus</h3><p>Join a robotics or chess club, take part in competitions, and meet students outside my usual circle.</p></div></li>
+          <li><div><h3>Build a first robotics prototype</h3><p>Use C or C++ to make a small robot respond to a sensor, then test how it behaves when the conditions change.</p></div></li>
+          <li><div><h3>Find a problem worth solving</h3><p>Talk with students about problems they run into, pick one, and try a simple prototype with the people who would use it.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="locked" id="achievements" data-chapter="achievements" aria-labelledby="achievements-title">
+      <div class="wrap">
+        <div class="intro">
+          <div><p class="eyebrow">Future achievements</p><h2 class="chapter-title" id="achievements-title">Not yet <em>unlocked</em></h2></div>
+          <div>
+            <p class="lede">These are the milestones I’m working toward. Each one gives me something concrete to aim for during college.</p>
+            <button class="unlock-trigger" type="button">Try to unlock</button>
+          </div>
+        </div>
+        <ul class="milestones">
+          <li class="milestone"><span class="padlock" aria-hidden="true"></span><h3>Demo a working robot</h3><p>Build a small rover and show it stopping on its own when a sensor detects an obstacle.</p></li>
+          <li class="milestone"><span class="padlock" aria-hidden="true"></span><h3>Play in a chess tournament</h3><p>Finish a tournament and review a game to find one decision I could improve.</p></li>
+          <li class="milestone"><span class="padlock" aria-hidden="true"></span><h3>Enter a team competition</h3><p>Build something with other students and present what we made together.</p></li>
+          <li class="milestone"><span class="padlock" aria-hidden="true"></span><h3>Test a startup idea</h3><p>Put a simple prototype in front of students and learn whether it solves a problem they actually have.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" data-chapter="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="eyebrow">Get in touch</p><h2 class="chapter-title" id="contact-title">Have something <em>in mind?</em></h2>
+        <p class="lede">I’d love to hear about a robotics club, a chess match, or an idea we could build together.</p>
+        <a class="button" href="mailto:josephdanielrai@gmail.com">josephdanielrai@gmail.com <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <div class="unlock-message" id="unlock-message" role="status" aria-live="polite" aria-atomic="true"><span></span></div>
+  <footer class="footer"><div class="wrap"><span>Daniel · Aditya University</span><a href="#top">Back to top ↑</a></div></footer>
+  <script>
+    const encounters = [
+      { name: 'Tracker', signal: 'A tracking beam locks onto your position.', effect: 'probe', move: 'Dodge' },
+      { name: 'Quake', signal: 'The robot sends a shockwave across the arena.', effect: 'shockwave', move: 'Shield' },
+      { name: 'Overload', signal: 'Its armor opens and the core is exposed.', effect: 'exposed', move: 'Counter' },
+    ];
+    const roundLabel = document.querySelector('#round');
+    const scoreLabel = document.querySelector('#score');
+    const stage = document.querySelector('#stage');
+    const status = document.querySelector('#game-status');
+    const advance = document.querySelector('#advance');
+    const moves = document.querySelector('#moves');
+    const moveButtons = [...moves.querySelectorAll('button')];
+    let roundIndex = -1;
+    let points = 0;
+
+    function startRound() {
+      const encounter = encounters[roundIndex];
+      roundLabel.textContent = `Round ${roundIndex + 1} / ${encounters.length}`;
+      scoreLabel.textContent = `Score ${points} / ${encounters.length}`;
+      delete stage.dataset.action;
+      stage.dataset.threat = encounter.effect;
+      stage.dispatchEvent(new CustomEvent('arena-motion', { detail: 'ready' }));
+      advance.hidden = true;
+      moves.hidden = false;
+      moveButtons.forEach(button => { button.disabled = false; });
+      status.textContent = `${encounter.name} — ${encounter.signal}`;
+      moveButtons[0].focus();
+    }
+
+    function resolveMove(move) {
+      const encounter = encounters[roundIndex];
+      const correct = encounter.move === move;
+      const lastRound = roundIndex === encounters.length - 1;
+      points += Number(correct);
+      delete stage.dataset.threat;
+      stage.dataset.action = correct ? move.toLowerCase() : 'miss';
+      stage.dispatchEvent(new CustomEvent('arena-motion', { detail: stage.dataset.action }));
+      scoreLabel.textContent = `Score ${points} / ${encounters.length}`;
+      moveButtons.forEach(button => { button.disabled = true; });
+      const feedback = correct ? `${move} worked. Robot disabled.` : `${move} missed. The right move was ${encounter.move.toLowerCase()}.`;
+      if (lastRound) {
+        roundLabel.textContent = 'Encounter complete';
+        status.textContent = `${feedback} You stopped ${points} of ${encounters.length} robots.`;
+        advance.textContent = 'Play again ↻';
+      } else {
+        status.textContent = feedback;
+        advance.textContent = 'Next robot →';
+      }
+      advance.hidden = false;
+      advance.focus();
+    }
+
+    advance.addEventListener('click', () => {
+      if (roundIndex === encounters.length - 1) {
+        roundIndex = -1;
+        points = 0;
+      }
+      roundIndex += 1;
+      startRound();
+    });
+    moveButtons.forEach(button => button.addEventListener('click', () => resolveMove(button.dataset.move)));
+    document.querySelector('#arena').hidden = false;
+
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const achievementSection = document.querySelector('#achievements');
+    if (achievementSection) {
+      const message = document.querySelector('#unlock-message');
+      const label = message.querySelector('span');
+      const page = document.querySelector('#main');
+      let dismissMessage;
+      let shake;
+
+      achievementSection.addEventListener('click', () => {
+        clearTimeout(dismissMessage);
+        label.textContent = 'NOT YET!!';
+        message.dataset.active = '';
+
+        if (!reduceMotion.matches) {
+          shake?.cancel();
+          shake = page.animate?.(
+            [0, -7, 7, -5, 4, -2, 0].map(x => ({ transform: `translateX(${x}px)` })),
+            { duration: 320, easing: 'ease-out' }
+          );
+          navigator.vibrate?.(65);
+        }
+
+        dismissMessage = setTimeout(() => {
+          delete message.dataset.active;
+          label.textContent = '';
+        }, 1500);
+      });
+    }
+
+    if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+      const reveal = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.dataset.reveal = 'visible';
+          reveal.unobserve(entry.target);
+        }
+      }, { threshold: .12 });
+
+      const sections = document.querySelectorAll('.intro, .card, .strategy-copy, .scores h2, .score, .arena-copy, .game, .next-copy, .roadmap li, .milestone, .contact .wrap');
+      for (const element of sections) {
+        if (element.getBoundingClientRect().top < innerHeight) continue;
+        element.dataset.reveal = 'waiting';
+        reveal.observe(element);
+      }
+      for (const group of document.querySelectorAll('.cards, .score-grid, .roadmap, .milestones')) {
+        [...group.children].forEach((child, index) => child.style.setProperty('--delay', `${index * 65}ms`));
+      }
+    }
+
+    const rootStyle = document.documentElement.style;
+    const chapters = [...document.querySelectorAll('[data-chapter]')].map(element => {
+      const hex = getComputedStyle(element).getPropertyValue('--chapter-color').trim();
+      const channels = [1, 3, 5].map(index => parseInt(hex.slice(index, index + 2), 16));
+      return { element, channels, top: 0 };
+    });
+    const clamp = value => Math.max(0, Math.min(1, value));
+    let scrollFrame = 0;
+    let readingRange = 0;
+
+    function paintScroll() {
+      scrollFrame = 0;
+      const position = scrollY;
+      rootStyle.setProperty('--reading', readingRange ? clamp(position / readingRange) : 0);
+      if (reduceMotion.matches || chapters.length === 0) return;
+
+      const cursor = position + innerHeight * .33;
+      const upcoming = chapters.findIndex(chapter => chapter.top > cursor);
+      const current = upcoming < 0 ? chapters.at(-1) : chapters[Math.max(0, upcoming - 1)];
+      const target = upcoming < 0 ? current : chapters[upcoming];
+      const blend = clamp(1 - (target.top - cursor) / Math.max(1, innerHeight * .58));
+      const eased = blend * blend * (3 - 2 * blend);
+      const color = current.channels.map((channel, index) => Math.round(channel + (target.channels[index] - channel) * eased));
+      rootStyle.setProperty('--scroll-color', `rgb(${color.join(' ')})`);
+      const wash = 70 + 21 * Math.sin(position / Math.max(1, innerHeight) * 1.2);
+      rootStyle.setProperty('--wash-position', `${wash.toFixed(2)}%`);
+    }
+
+    function queueScrollPaint() {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(paintScroll);
+    }
+
+    function measureScroll() {
+      readingRange = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+      for (const chapter of chapters) chapter.top = chapter.element.getBoundingClientRect().top + scrollY;
+      if (reduceMotion.matches && chapters.length) {
+        rootStyle.removeProperty('--scroll-color');
+        rootStyle.removeProperty('--wash-position');
+      }
+      paintScroll();
+    }
+
+    addEventListener('scroll', queueScrollPaint, { passive: true });
+    addEventListener('resize', measureScroll);
+    addEventListener('load', measureScroll, { once: true });
+    reduceMotion.addEventListener?.('change', measureScroll);
+    measureScroll();
+
+    if (chapters.length && 'IntersectionObserver' in window) {
+      const plays = new Map();
+      const secretObserver = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) plays.get(entry.target)();
+        }
+      }, { threshold: .2, rootMargin: '0px 0px -14% 0px' });
+
+      for (const { element } of chapters) {
+        const heading = element.querySelector('h1, h2');
+        const layer = document.createElement('div');
+        layer.className = 'chapter-secret';
+        layer.setAttribute('aria-hidden', 'true');
+        element.prepend(layer);
+
+        function playSecret() {
+          if (!reduceMotion.matches && !layer.hasAttribute('data-playing')) {
+            layer.dataset.playing = '';
+          }
+        }
+
+        layer.addEventListener('animationend', event => {
+          if (event.animationName === 'secret-pulse' && event.pseudoElement === '::before') delete layer.dataset.playing;
+        });
+        reduceMotion.addEventListener?.('change', () => { delete layer.dataset.playing; });
+        element.addEventListener('focusin', playSecret);
+        element.addEventListener('pointerenter', event => {
+          if (event.pointerType === 'mouse') playSecret();
+        });
+        element.addEventListener('pointerup', event => {
+          if (event.pointerType !== 'mouse') playSecret();
+        });
+        if (heading) {
+          plays.set(heading, playSecret);
+          secretObserver.observe(heading);
+        }
+      }
+    }
+
+    const motionCards = [...document.querySelectorAll('[data-motion-card]')];
+    if (motionCards.length) {
+      const replays = new Map();
+      const cardObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+        for (const { target, isIntersecting } of entries) {
+          target.toggleAttribute('data-card-live', isIntersecting);
+          if (isIntersecting) replays.get(target)();
+        }
+      }, { threshold: .25 }) : null;
+
+      for (const card of motionCards) {
+        let reset;
+        const replay = () => {
+          if (reduceMotion.matches) return;
+          clearTimeout(reset);
+          delete card.dataset.cardPlaying;
+          // Apply the static style before restarting the same keyframes.
+          void card.offsetWidth;
+          card.dataset.cardPlaying = '';
+          reset = setTimeout(() => { delete card.dataset.cardPlaying; }, 760);
+        };
+        replays.set(card, replay);
+        cardObserver?.observe(card);
+        card.querySelector('.replay-card').addEventListener('click', replay);
+        card.addEventListener('pointerenter', event => {
+          if (event.pointerType === 'mouse') replay();
+        });
+        card.addEventListener('pointerup', event => {
+          if (event.pointerType !== 'mouse' && !event.target.closest('.replay-card')) replay();
+        });
+      }
+    }
+
+    for (const card of document.querySelectorAll('.card')) {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+      });
+    }
+
+    if (!reduceMotion.matches && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cover = document.querySelector('.hero');
+      const artwork = cover.querySelector('.hero-art');
+      cover.addEventListener('pointermove', event => {
+        if (reduceMotion.matches) return;
+        const bounds = cover.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - .5;
+        const y = (event.clientY - bounds.top) / bounds.height - .5;
+        artwork.style.setProperty('--drift-x', `${x * 8}px`);
+        artwork.style.setProperty('--drift-y', `${y * 8}px`);
+      });
+      cover.addEventListener('pointerleave', () => {
+        artwork.style.removeProperty('--drift-x');
+        artwork.style.removeProperty('--drift-y');
+      });
+    }
+  </script>
+  <script src="three-local.js"></script>
+  <script src="duel-3d.js"></script>
+  <script>
+(() => {
+  const poster = document.querySelector('.hero-art');
+  const canvas = poster.querySelector('canvas');
+  const stage = document.querySelector('#stage');
+  const arena = stage.querySelector('canvas');
+  const watch = document.querySelector('#watch-fight');
+  const coverContext = canvas.getContext('2d');
+  const arenaContext = arena.getContext('2d');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!coverContext || !arenaContext) return;
+
+  const shots = [
+    [0.00, 324, 431, 0, 56, -98, 691, 380, 0, 55, -95],
+    [0.47, 341, 431, -.03, 77, -105, 704, 379, -.10, 72, -205],
+    [0.82, 327, 437, -.13, 63, -104, 687, 374, -.15, 101, -235],
+    [1.11, 288, 345, -.34, 43, -91, 630, 389, -.19, 127, 48],
+    [1.19, 278, 324, -.25, 56, -106, 631, 388, -.19, 125, 45],
+    [1.52, 326, 430, -.08, 54, -102, 648, 385, -.06, 74, -82],
+    [1.84, 379, 468, .24, 80, -118, 671, 384, .05, 70, -104],
+    [2.12, 451, 288, .31, 107, -112, 659, 384, -.07, 91, -107],
+    [2.29, 529, 312, .19, 154, -109, 670, 383, .08, 51, -89],
+    [2.37, 530, 311, .19, 154, -109, 672, 382, .10, 49, -88],
+    [2.58, 499, 348, .07, 105, -97, 735, 395, .37, 41, -72],
+    [2.94, 460, 433, 0, 71, -107, 772, 470, .83, 27, -59],
+    [3.34, 429, 432, -.02, 57, -102, 794, 519, 1.4, 31, -35],
+    [4.68, 429, 432, 0, 60, -100, 795, 521, 1.45, 32, -35],
+  ];
+  const coverLength = shots.at(-1)[0];
+  let coverFrame = 0;
+  let arenaFrame = 0;
+  let coverStart = 0;
+  let arenaStart = 0;
+  let arenaAction = 'ready';
+
+  function path(context, points, color, stroke, width = 2) {
+    context.beginPath();
+    points.forEach(([x, y], index) => index ? context.lineTo(x, y) : context.moveTo(x, y));
+    context.closePath();
+    context.fillStyle = color;
+    context.fill();
+    if (stroke) {
+      context.strokeStyle = stroke;
+      context.lineWidth = width;
+      context.stroke();
+    }
+  }
+
+  function limb(context, start, end, width, armor, edge) {
+    const dx = end[0] - start[0];
+    const dy = end[1] - start[1];
+    const length = Math.hypot(dx, dy);
+    const half = width / 2;
+    context.save();
+    context.translate(...start);
+    context.rotate(Math.atan2(dy, dx));
+    path(context, [[-8,-half*.55],[6,-half],[length-9,-half],[length+7,-half*.57],
+      [length+7,half*.57],[length-12,half],[6,half],[-8,half*.56]], armor, edge);
+    path(context, [[7,-half*.69],[length-10,-half*.69],[length-16,-half*.36],
+      [8,-half*.36]], '#ffffff23');
+    context.restore();
+  }
+
+  function rig(context, x, y, angle, handX, handY, robot, time) {
+    const size = robot ? 1.8 : .68;
+    const direction = robot ? -1 : 1;
+    const edge = robot ? '#b37d63' : '#ff3e48';
+    const face = robot ? '#66505a' : '#22232d';
+    const plate = robot ? '#44353b' : '#12131b';
+    const depth = robot ? '#2d272f' : '#0d0e15';
+    const grounded = Math.max(47, Math.min(robot ? 113 : 156, (535 - y) / size));
+    const spread = y > 452 && !robot ? 34 : 0;
+    const hand = [handX, handY];
+    const frontElbow = [17 + handX * .55, -94 + (handY + 95) * .48];
+    context.save();
+    context.translate(x, y);
+    context.rotate(angle);
+    context.scale(direction * size, size);
+    if (!robot) {
+      const flutter = Math.sin(time * 12) * 12;
+      context.beginPath();
+      context.moveTo(-25, -145);
+      context.bezierCurveTo(-93, -165, -172, -126 + flutter, -240, -105 + flutter);
+      context.lineTo(-199, -87 + flutter);
+      context.lineTo(-234, -55 + flutter);
+      context.bezierCurveTo(-144, -88, -74, -26, -24, -79);
+      context.closePath();
+      context.fillStyle = '#15101b';
+      context.fill();
+      context.strokeStyle = '#d83543';
+      context.lineWidth = 2;
+      context.stroke();
+    }
+    const backKnee = [-39 - spread, grounded * .49];
+    const frontKnee = [28 + spread, grounded * .47];
+    const backFoot = [-54 - spread, grounded];
+    const frontFoot = [55 + spread, grounded];
+    limb(context, [-19, -7], backKnee, 40, depth, edge);
+    limb(context, backKnee, backFoot, 30, depth, edge);
+    limb(context, [15, -4], frontKnee, 45, plate, edge);
+    limb(context, frontKnee, frontFoot, 35, face, edge);
+    limb(context, [-25, -137], [-68, -85], 34, depth, edge);
+    limb(context, [-68, -85], [-43, -56], 27, depth, edge);
+    const shoulder = robot ? 61 : 48;
+    path(context, [[-shoulder,-142],[-30,-157],[31,-157],[shoulder,-137],[34,-78],[19,-17],
+      [-23,-16],[-37,-73]], plate, edge, 2.5);
+    path(context, [[-34,-134],[0,-113],[36,-133],[21,-111],[0,-96],[-19,-105]], face, edge);
+    path(context, [[-24,-65],[21,-66],[15,-35],[-20,-34]], depth, edge, 1.4);
+    limb(context, [33,-131], frontElbow, robot ? 44 : 32, face, edge);
+    limb(context, frontElbow, hand, robot ? 38 : 31, plate, edge);
+    path(context, [[handX-13,handY-17],[handX+10,handY-19],[handX+20,handY-9],
+      [handX+19,handY+10],[handX+8,handY+18],[handX-12,handY+14]], face, edge);
+    const helmet = robot
+      ? [[-29,-213],[28,-214],[45,-200],[42,-168],[19,-153],[-27,-158],[-39,-181]]
+      : [[-28,-201],[-9,-216],[22,-210],[39,-189],[31,-163],[9,-149],[-19,-158],[-35,-181]];
+    path(context, helmet, plate, edge, 2.7);
+    path(context, [[-29,-187],[-10,-201],[18,-198],[30,-184],[15,-187],[-10,-187]], face);
+    context.save();
+    context.shadowColor = robot ? '#ff7442' : '#38bbff';
+    context.shadowBlur = 17;
+    path(context, [[-18,-180],[33,-187],[27,-174],[-15,-172]], robot ? '#ffad62' : '#bcefff');
+    context.restore();
+    context.restore();
+  }
+
+  function atmosphere(context, time, arenaMode) {
+    const sky = context.createLinearGradient(0, 20, 0, 640);
+    sky.addColorStop(0, '#0e0e16');
+    sky.addColorStop(.68, arenaMode ? '#2f1c22' : '#322329');
+    sky.addColorStop(1, '#0e0e14');
+    context.fillStyle = sky;
+    context.fillRect(0, 0, 960, 640);
+    for (let index = 0; index < 22; index += 1) {
+      const x = index * 49;
+      const top = 141 + ((index * 119) % 243);
+      context.fillStyle = index % 3 === 0 ? '#171620' : '#1b181f';
+      context.fillRect(x, top, 45, 469 - top);
+      context.fillStyle = '#e9924940';
+      for (let y = top + 16; y < 461; y += 26) {
+        if ((y + index * 10) % 5 !== 0) context.fillRect(x + 9 + (index % 2) * 13, y, 4, 7);
+      }
+    }
+    context.fillStyle = '#0e0f16';
+    context.fillRect(0, 526, 960, 115);
+    context.strokeStyle = '#f1aa6634';
+    context.lineWidth = 1;
+    for (const height of [527, 541, 565, 607]) {
+      context.beginPath();
+      context.moveTo(0, height);
+      context.lineTo(960, height);
+      context.stroke();
+    }
+    for (let x = -420; x < 1440; x += 132) {
+      context.beginPath();
+      context.moveTo(502 + (x - 502) * .29, 527);
+      context.lineTo(x, 640);
+      context.stroke();
+    }
+    context.fillStyle = '#ffc38766';
+    for (let i = 0; i < 22; i += 1) {
+      const x = ((i * 131 + time * (i % 4 + 5)) % 960);
+      const y = 485 - ((i * 53 + time * (i % 3 + 14)) % 329);
+      context.fillRect(x, y, i % 3 + 1, 1.5);
+    }
+  }
+
+  function energy(context, x, y, time, power, spread, orange = false) {
+    context.save();
+    context.lineCap = 'round';
+    context.shadowBlur = 16;
+    context.shadowColor = orange ? '#ff6c44' : '#168dff';
+    for (let i = 0; i < 17; i += 1) {
+      const angle = i * 2.4 + time * 3;
+      const reach = (9 + (i * 13) % 49) * spread;
+      const dx = Math.cos(angle) * reach;
+      const dy = Math.sin(angle) * reach * .7;
+      context.globalAlpha = power * (.35 + i % 5 / 9);
+      context.strokeStyle = orange ? '#ff965f' : i % 3 === 0 ? '#d0f8ff' : '#379fff';
+      context.lineWidth = i % 3 + 1;
+      context.beginPath();
+      context.moveTo(x + dx * .23, y + dy * .23);
+      context.quadraticCurveTo(x + dx * .77 + Math.sin(time*20+i)*12, y + dy * .58 - 15, x + dx, y + dy);
+      context.stroke();
+    }
+    context.restore();
+  }
+
+  function poseAt(time) {
+    const next = shots.findIndex(shot => shot[0] > time);
+    if (next < 1) return shots.at(-1).slice(1);
+    const from = shots[next - 1];
+    const to = shots[next];
+    const t = (time - from[0]) / (to[0] - from[0]);
+    const smooth = t * t * (3 - 2 * t);
+    return from.slice(1).map((value, index) => value + (to[index + 1] - value) * smooth);
+  }
+
+  function groundShadow(context, x, y, robot) {
+    const radius = robot ? 115 : 48;
+    context.save();
+    context.globalAlpha = y < 365 ? .35 : .74;
+    context.fillStyle = '#08080d';
+    context.beginPath();
+    context.ellipse(x, 547, radius, robot ? 17 : 8, 0, 0, Math.PI * 2);
+    context.fill();
+    context.restore();
+  }
+
+  function impactBurst(context, x, y, age, extent, color, ground = false) {
+    if (age < 0 || age > .66) return;
+    const opacity = (1 - age / .66) ** 1.4;
+    const radius = 14 + extent * age;
+    context.save();
+    context.translate(x, y);
+    context.strokeStyle = color;
+    context.shadowColor = color;
+    context.shadowBlur = 19;
+    context.globalAlpha = .72 * opacity;
+    context.lineWidth = 2.5;
+    context.beginPath();
+    context.ellipse(0, 0, radius, ground ? radius * .19 : radius * .76, 0, 0, Math.PI * 2);
+    context.stroke();
+    context.shadowBlur = 7;
+    for (let index = 0; index < 26; index += 1) {
+      const angle = (index * 2.399) + .15;
+      const speed = 70 + (index * 73) % 320;
+      const distance = 10 + speed * age;
+      const spread = ground ? .55 : .9;
+      const rise = ground ? -Math.abs(Math.sin(angle)) * distance * spread : Math.sin(angle) * distance * spread;
+      const dx = Math.cos(angle) * distance;
+      const tip = 5 + index % 4 * 3;
+      const drop = age * age * (ground ? 105 : 44);
+      context.lineWidth = index % 4 === 0 ? 3.5 : 1.5;
+      context.beginPath();
+      context.moveTo(dx, rise + drop);
+      context.lineTo(dx + Math.cos(angle) * tip, rise + drop - tip * .7);
+      context.stroke();
+    }
+    context.restore();
+  }
+
+  function bossHealth(context, time) {
+    const health = time < 2.29 ? 1 : Math.max(0, 1 - (time - 2.29) * 1.95);
+    context.save();
+    context.font = 'bold 17px ui-monospace, monospace';
+    context.fillStyle = '#fff1dd';
+    context.textAlign = 'right';
+    context.fillText(health > 0 ? 'BOSS HP' : 'BOSS DOWN', 730, 67);
+    context.fillStyle = '#22171b';
+    context.fillRect(491, 78, 239, 11);
+    context.fillStyle = '#ff754d';
+    context.fillRect(491, 78, 239 * health, 11);
+    context.strokeStyle = '#f99f76';
+    context.strokeRect(491, 78, 239, 11);
+    context.restore();
+  }
+
+  function scene(context, pose, time, arenaMode = false, effect = '') {
+    if (window.Duel3D?.renderFrame(context, pose, time, arenaMode, effect)) {
+      if (!arenaMode) bossHealth(context, time);
+      return;
+    }
+    const [hx,hy,ha,hfx,hfy, rx,ry,ra,rfx,rfy] = pose;
+    const fire = arenaMode ? effect === 'counter' || effect === 'shield' : time > 1.76 && time < 3.15;
+    const impact = arenaMode ? effect === 'counter' && time > .24 && time < .58 : time > 2.27 && time < 2.63;
+    const slamAge = time - (arenaMode ? .29 : 1.11);
+    const slam = arenaMode ? effect === 'miss' || effect === 'ready' : slamAge >= 0 && slamAge < .66;
+    context.save();
+    if (arenaMode) {
+      context.scale(1, .675);
+      atmosphere(context, time, true);
+      context.restore();
+      context.save();
+      context.translate(84, 31);
+      context.scale(.8, .73);
+    } else {
+      atmosphere(context, time, false);
+    }
+    if (impact || (slam && slamAge < .21 && slamAge >= 0)) {
+      if (!reduceMotion.matches) {
+        const shake = impact ? 7 : 4;
+        context.translate(Math.sin(time * 137) * shake, Math.cos(time * 99) * shake * .45);
+      }
+    }
+    groundShadow(context, rx, ry, true);
+    groundShadow(context, hx, hy, false);
+    rig(context, rx, ry, ra, rfx, rfy, true, time);
+    rig(context, hx, hy, ha, hfx, hfy, false, time);
+    if (slam) impactBurst(context, arenaMode ? 527 : 417, 525, slamAge, 300, '#ff8c51', true);
+    if (fire) {
+      const x = hx + (hfx * Math.cos(ha) - hfy * Math.sin(ha)) * .68;
+      const y = hy + (hfx * Math.sin(ha) + hfy * Math.cos(ha)) * .68;
+      energy(context, x, y, time, impact ? 1 : .78, impact ? 2 : 1.18);
+      if (impact) impactBurst(context, x, y, time - (arenaMode ? .24 : 2.27), 340, '#77d7ff');
+    }
+    if (!arenaMode) impactBurst(context, 775, 540, time - 3.2, 220, '#ffa471', true);
+    if (effect === 'shield') impactBurst(context, hx + 65, hy - 103, time - .19, 160, '#b1edff');
+    if (effect === 'miss') energy(context, hx + 24, hy - 120, time, .8, 1.45, true);
+    context.restore();
+    if (!arenaMode) bossHealth(context, time);
+  }
+
+  function finishCover() {
+    cancelAnimationFrame(coverFrame);
+    coverFrame = 0;
+    delete poster.dataset.fighting;
+    watch.textContent = '▶ Replay the fight';
+  }
+
+  function coverTick(timestamp) {
+    const elapsed = (timestamp - coverStart) / 1000;
+    scene(coverContext, poseAt(elapsed), elapsed);
+    if (elapsed < coverLength) coverFrame = requestAnimationFrame(coverTick);
+    else finishCover();
+  }
+
+  function startCover() {
+    if (coverFrame) return;
+    scene(coverContext, poseAt(0), 0);
+    poster.dataset.fighting = '';
+    watch.textContent = '■ Stop the fight';
+    coverStart = performance.now();
+    coverFrame = requestAnimationFrame(coverTick);
+  }
+
+  const arenaDuration = 1.06;
+  const arenaBeats = {
+    dodge: { label: 'DODGE', color: '#b7e8ff', x: 347, y: 236 },
+    shield: { label: 'GUARD', color: '#8af3f1', x: 419, y: 246 },
+    counter: { label: 'COUNTER', color: '#86ceff', x: 545, y: 217 },
+    miss: { label: 'HIT', color: '#ff916a', x: 342, y: 233 },
+  };
+
+  function speedLines(context, beat, time, strength) {
+    context.save();
+    context.translate(beat.x, beat.y);
+    context.strokeStyle = beat.color;
+    context.globalAlpha = strength * .62;
+    for (let i = 0; i < 31; i += 1) {
+      const angle = i * 2.39996;
+      const shift = (i * 59 + time * 470) % 190;
+      const distance = 135 + shift;
+      const reach = distance + 35 + (i * 23) % 156;
+      const dx = Math.cos(angle);
+      const dy = Math.sin(angle) * .62;
+      context.lineWidth = i % 7 === 0 ? 3 : 1;
+      context.beginPath();
+      context.moveTo(dx * distance, dy * distance);
+      context.lineTo(dx * reach, dy * reach);
+      context.stroke();
+    }
+    context.restore();
+  }
+
+  function counterCutIn(context, time) {
+    const age = (time - .08) / .29;
+    if (age <= 0 || age >= 1) return;
+    const strength = Math.min(age * 8, (1 - age) * 5, 1);
+    context.save();
+    context.globalAlpha = strength;
+    context.translate(-32 + age * 34, 0);
+    path(context, [[130,72],[773,31],[696,143],[89,171]], '#111623', '#8acfff', 3);
+    path(context, [[243,67],[562,48],[674,69],[630,107],[442,147],[264,133],[199,103]], '#26242e', '#fa535e', 3);
+    path(context, [[294,85],[565,73],[614,81],[560,101],[311,116]], '#88e5ff', '#d1f6ff', 2);
+    path(context, [[308,89],[563,79],[585,81],[554,89],[321,105]], '#e8fbff');
+    context.restore();
+  }
+
+  function arenaAccent(context, action, time) {
+    const beat = arenaBeats[action];
+    if (!beat) return;
+    const strength = Math.max(0, 1 - Math.abs(time - .41) / .42);
+    speedLines(context, beat, time, strength);
+    if (action === 'counter') counterCutIn(context, time);
+    const age = time - .33;
+    if (action === 'counter' || action === 'miss') {
+      impactBurst(context, beat.x, beat.y, age, 390, beat.color);
+    }
+    if (action === 'shield') {
+      context.save();
+      context.globalAlpha = strength * .88;
+      context.shadowColor = beat.color;
+      context.shadowBlur = 22;
+      context.strokeStyle = beat.color;
+      context.lineWidth = 5;
+      context.beginPath();
+      context.ellipse(beat.x, beat.y, 45 + strength * 27, 68 + strength * 17, 0, -1.26, 1.26);
+      context.stroke();
+      context.restore();
+    }
+    if (age < 0 || age > .58) return;
+    context.save();
+    context.translate(beat.x + 20, beat.y - 51 - 40 * age);
+    context.rotate(-.12);
+    context.globalAlpha = Math.max(0, Math.min(age * 14, (.58 - age) * 4, 1));
+    context.textAlign = 'center';
+    context.font = 'italic 900 56px "Arial Black", sans-serif';
+    context.lineJoin = 'round';
+    context.lineWidth = 8;
+    context.strokeStyle = '#151323';
+    context.strokeText(beat.label, 0, 0);
+    context.fillStyle = beat.color;
+    context.fillText(beat.label, 0, 0);
+    context.restore();
+  }
+
+  function arenaTick(timestamp) {
+    const time = Math.min((timestamp - arenaStart) / 1000, arenaDuration);
+    const motion = Math.sin(Math.PI * time / arenaDuration);
+    const idle = [320,432,0,68,-106, 675,380,.03,70,-101];
+    const pose = idle.slice();
+    if (arenaAction === 'ready' || arenaAction === 'miss') {
+      pose[5] -= 54 * motion;
+      pose[8] += 67 * motion;
+      pose[9] -= 22 * motion;
+    }
+    if (arenaAction === 'dodge') {
+      pose[0] -= 88 * motion;
+      pose[1] -= 116 * motion;
+      pose[2] -= .54 * motion;
+      pose[8] += 54 * motion;
+    }
+    if (arenaAction === 'shield') {
+      pose[3] += 13 * motion;
+      pose[4] -= 47 * motion;
+      pose[5] += 31 * motion;
+    }
+    if (arenaAction === 'counter') {
+      const strike = Math.max(0, Math.min(1, (time - .18) / .2, (arenaDuration - time) / .58));
+      pose[0] += 154 * strike;
+      pose[1] -= 89 * strike;
+      pose[3] += 96 * strike;
+      pose[4] -= 37 * motion;
+      pose[5] += 66 * strike;
+      pose[7] += .4 * strike;
+    }
+    scene(arenaContext, pose, time, true, time < .9 ? arenaAction : '');
+    arenaAccent(arenaContext, arenaAction, time);
+    if (time < arenaDuration) arenaFrame = requestAnimationFrame(arenaTick);
+  }
+
+  stage.addEventListener('arena-motion', event => {
+    cancelAnimationFrame(arenaFrame);
+    if (reduceMotion.matches) return;
+    arenaAction = event.detail;
+    arenaStart = performance.now();
+    arenaFrame = requestAnimationFrame(arenaTick);
+  });
+  arena.hidden = false;
+  stage.dataset.canvas = '';
+  scene(arenaContext, [320,432,0,68,-106, 675,380,.03,70,-101], 0, true);
+  watch.hidden = false;
+  watch.addEventListener('click', () => coverFrame ? finishCover() : startCover());
+  setTimeout(() => {
+    if (!reduceMotion.matches && document.visibilityState === 'visible' && poster.getBoundingClientRect().bottom > 180) startCover();
+  }, 1080);
+})();
+  </script>
+  <script src="chess-engine.js"></script>
+  <script src="chess-board.js"></script>
+</body>
+</html>
